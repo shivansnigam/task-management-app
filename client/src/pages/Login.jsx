@@ -23,7 +23,7 @@ export default function Login() {
     <div className="container-fluid p-0 m-0">
       <div className="row g-0" style={{ height: "100vh" }}>
         
-        {/* Left Side */}
+        {}
         <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center text-white"
           style={{ background: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)" }}>
           <h1 className="fw-bold mb-3">Welcome Back</h1>

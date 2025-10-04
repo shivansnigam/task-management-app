@@ -19,14 +19,14 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted, role }) {
     }
   };
 
-  // Priority color mapping
+  
   const priorityColor = {
     High: "bg-danger text-white",
     Medium: "bg-warning text-dark",
     Low: "bg-success text-white"
   };
 
-  // Status color mapping
+  
   const statusColor = {
     "To Do": "bg-secondary text-white",
     "In Progress": "bg-info text-white",
@@ -51,7 +51,7 @@ export default function TaskCard({ task, onTaskUpdated, onTaskDeleted, role }) {
           </span>
         </div>
 
-        {/* Buttons role ke hisaab se */}
+        {}
         <div className="mt-auto d-flex flex-wrap gap-2">
           {(role === "Admin" || role === "Manager" || role === "Employee") && (
             <>

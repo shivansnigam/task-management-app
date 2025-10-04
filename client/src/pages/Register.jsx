@@ -1,21 +1,21 @@
 // Register.js
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // <-- React Router navigation
+import { useNavigate } from "react-router-dom"; 
 import API from "../api/axios";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "", role: "Employee" });
-  const navigate = useNavigate(); // <-- Initialize navigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/register", form);
       console.log(res.data);
-      alert("Registered successfully!"); // success message
-      navigate("/login"); // <-- Redirect to login page immediately
+      alert("Registered successfully!"); 
+      navigate("/login"); 
     } catch (err) {
-      alert(err.response?.data?.msg || "Registration failed"); // error handling
+      alert(err.response?.data?.msg || "Registration failed"); 
     }
   };
 

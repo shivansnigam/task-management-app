@@ -10,13 +10,13 @@ export default function TaskForm({ onTaskCreated }) {
     assignedTo: ""
   });
 
-  const [users, setUsers] = useState([]); // Users fetched from backend
+  const [users, setUsers] = useState([]); 
 
-  // Fetch users on mount
+  
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await API.get("/users"); // backend endpoint for users
+        const res = await API.get("/users"); 
         setUsers(res.data);
       } catch (err) {
         console.error(err.response?.data || err.message);

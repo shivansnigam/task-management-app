@@ -8,7 +8,7 @@ import { AuthContext } from "../contexts/AuthContext";
 export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate(); // <-- initialize here
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     loadTasks();
@@ -43,7 +43,7 @@ export default function Dashboard() {
 
       <button
         className="btn btn-outline-primary mb-3"
-        onClick={() => navigate("/kanban")} // <-- works now
+        onClick={() => navigate("/kanban")} 
       >
         Open Kanban Board
       </button>

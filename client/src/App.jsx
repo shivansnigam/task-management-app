@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Redirect root path / to /register */}
+        
         <Route path="/" element={<Navigate to="/register" replace />} />
 
         <Route path="/login" element={<Login />} />

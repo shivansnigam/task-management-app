@@ -12,7 +12,7 @@ export default function KanbanBoard() {
     API.get("/tasks").then((res) => setTasks(res.data));
   }, []);
 
-  // tasks ko status ke hisaab se group karna
+ 
   const columns = {
     "To Do": tasks.filter((t) => t.status === "To Do"),
     "In Progress": tasks.filter((t) => t.status === "In Progress"),
@@ -24,19 +24,19 @@ export default function KanbanBoard() {
 
     const { source, destination } = result;
 
-    // same column me drag hua toh kuch nahi karna
+    
     if (source.droppableId === destination.droppableId) return;
 
-    // dragged task id
+   
     const draggedTask = columns[source.droppableId][source.index];
 
     try {
-      // backend me update
+       
       const res = await API.put(`/tasks/${draggedTask._id}`, {
         status: destination.droppableId,
       });
 
-      // frontend me update
+      
       setTasks((prev) =>
         prev.map((t) => (t._id === draggedTask._id ? res.data : t))
       );
