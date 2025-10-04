@@ -12,7 +12,7 @@ router.get('/', allowRoles('Admin'), async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
-// update role (Admin only)
+
 router.put('/:id/role', allowRoles('Admin'), async (req, res, next) => {
   try {
     const { role } = req.body;

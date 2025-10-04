@@ -16,7 +16,7 @@ exports.getTasks = async (req, res, next) => {
     if (role === 'Admin' || role === 'Manager') {
       tasks = await Task.find().populate('assignedTo createdBy', 'name email role');
     } else {
-      // Employee: tasks assigned to them or created by them
+      
       tasks = await Task.find({ $or: [{ assignedTo: _id }, { createdBy: _id }] })
         .populate('assignedTo createdBy', 'name email role');
     }
@@ -28,7 +28,7 @@ exports.getTaskById = async (req, res, next) => {
   try {
     const task = await Task.findById(req.params.id).populate('assignedTo createdBy', 'name email role');
     if (!task) return res.status(404).json({ message: 'Task not found' });
-    // check access
+  
     if (req.user.role === 'Employee' && task.assignedTo?.toString() !== req.user._id.toString() && task.createdBy?.toString() !== req.user._id.toString())
       return res.status(403).json({ message: 'Forbidden' });
     res.json(task);
@@ -55,7 +55,7 @@ exports.deleteTask = async (req, res, next) => {
 
     if (!canModifyTask(task, req.user)) return res.status(403).json({ message: 'Forbidden' });
 
-    await Task.findByIdAndDelete(req.params.id); // yeh use karo
+    await Task.findByIdAndDelete(req.params.id);  
     res.json({ message: 'Task deleted' });
   } catch (err) {
     next(err);
